@@ -13,13 +13,14 @@
         }
 
         body {
-            background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2gweWxpbzlpd21lMTI1YWk4dDc2bTE4OWhhanZ0NHFreWpxcmppOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JvlJSmxmKSXyE/giphy.gif') no-repeat center center fixed;
+            background: url('https://media0.giphy.com/media/JvlJSmxmKSXyE/giphy.gif') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
         /* Rain Effect */
@@ -27,9 +28,15 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHloYzdzbjk0bXZweTg5bjZyOGdseWo3amcyeTRlMnBwbHdwZGhiMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t89J0IcSiIEKY/giphy.gif') repeat top center;
-            opacity: 0.6;
+            background: url('https://media4.giphy.com/media/t89J0IcSiIEKY/giphy.gif') repeat top center;
+            opacity: 0.4;
+            animation: rain-fall 1s linear infinite;
             pointer-events: none;
+        }
+
+        @keyframes rain-fall {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
         }
 
         /* Batman Jumping Animation */
@@ -37,19 +44,15 @@
             position: absolute;
             bottom: 50px;
             left: 50%;
-            width: 150px;
+            width: 120px;
             height: auto;
             transform: translateX(-50%);
-            animation: jump 4s infinite ease-in-out;
+            animation: jump 3s infinite ease-in-out;
         }
 
         @keyframes jump {
-            0%, 100% {
-                bottom: 50px;
-            }
-            50% {
-                bottom: 300px;
-            }
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-150px); }
         }
 
         /* Floating Text */
@@ -58,11 +61,17 @@
             top: 10%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 40px;
+            font-size: 5vw;
             font-weight: bold;
             color: yellow;
             font-family: Arial, sans-serif;
             text-shadow: 4px 4px 8px black;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 4px 4px 8px black; }
+            100% { text-shadow: 6px 6px 12px yellow; }
         }
     </style>
 </head>
@@ -70,7 +79,7 @@
 
     <div class="rain"></div>
     
-    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGpuOG9tazV4eWk0djBpeXFrYzU4anVzaXhieHVsMWNlbm1waXBlbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13F5BnmqVOfKhy/giphy.gif" class="batman" alt="Batman Jumping">
+    <img src="https://media4.giphy.com/media/13F5BnmqVOfKhy/giphy.gif" class="batman" alt="Batman Jumping">
 
     <div class="text">Welcome to Gotham City 🦇</div>
 
